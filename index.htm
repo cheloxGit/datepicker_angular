@@ -23,7 +23,18 @@
     <script src="angular-messages/angular-messages.js"></script> 
     <md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
  
-
+  <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Nombres</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+  </div>
+  <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Apellido Paterno</label>
+            <input ng-model="user.lastName">
+          </md-input-container>
+  </div>
   <div layout-gt-xs="row">
     <div flex-gt-xs>
       <h4>Por favor escoja el año de nacimiento: </h4>
