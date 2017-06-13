@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="angular-material/angular-material.css">
+</head>
+    <body ng-app="datepickerBasicUsage">
+
+ 
+    <script src="angular/angular.js"></script> 
+    <script src="angular-aria/angular-aria.js"></script> 
+    <script src="angular-animate/angular-animate.js"></script> 
+    <script src="angular-material/angular-material.js"></script> 
+    <script src="angular-messages/angular-messages.js"></script> 
+    <md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
+ 
+
+  <div layout-gt-xs="row">
+    <div flex-gt-xs>
+      <h4>Por favor escoja el año de nacimiento: </h4>
+      <md-datepicker ng-model="ctrl.myDate" md-current-view="year" md-placeholder="Enter date" md-min-date="ctrl.minDate" md-max-date="ctrl.maxDate"></md-datepicker>
+    </div>
+  </div>
+</md-content>
+    <script>
+ 
+        // Include app dependency on ngMaterial 
+ 
+angular.module('datepickerBasicUsage', ['ngMaterial', 'ngMessages']).controller('AppCtrl', function() {
+  this.myDate = new Date();
+  // this.myDate.setFullYear(1970);
+  this.myDate.setTime(this.myDate.valueOf() - 90 * 365 * 24 * 60 * 60 * 1000);
+  // d.setFullYear(2020);
+  this.minDate = new Date(
+    this.myDate.getFullYear(),
+    this.myDate.getMonth(),
+    this.myDate.getDate()
+  );
+
+  this.maxDate = new Date(
+    this.myDate.getFullYear()+90,
+    this.myDate.getMonth(),
+    this.myDate.getDate()
+  );
+
+  this.isOpen = false;
+});
+ 
+    </script> 
+ 
+</body>
+</html>
